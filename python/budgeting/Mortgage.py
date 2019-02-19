@@ -16,7 +16,7 @@ class Mortgage:
 
         self.amount = amount
         self.down = down
-        self.interest = interest
+        self.interest = float(interest)
         self.amortization = amortization
 
 
