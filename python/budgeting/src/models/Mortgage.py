@@ -1,5 +1,5 @@
 import math
-import utils
+from src.utils.format import format_currency
 
 class Mortgage:
     """Mortgage class."""
@@ -65,10 +65,10 @@ class Mortgage:
         Amortization - {} year(s)
         Mortgage payment - {}
         """.format(
-            utils.pretty_print_currency(self.amount),
-            utils.pretty_print_currency(self.down),
-            utils.pretty_print_currency(self.get_principal()), 
+            format_currency(self.amount),
+            format_currency(self.down),
+            format_currency(self.get_principal()), 
             self.interest, 
             self.amortization, 
-            utils.pretty_print_currency(self.get_mortgage_payment()))
+            format_currency(self.get_mortgage_payment()))
      

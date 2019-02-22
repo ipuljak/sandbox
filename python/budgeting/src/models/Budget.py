@@ -1,5 +1,5 @@
 import math
-import utils
+from ..utils.format import format_currency
 
 class Budget(object):
     """Budget calculator."""
@@ -60,10 +60,10 @@ class Budget(object):
         Total net monthly income - {}
         Mortgage monthly payment percetage - {}%
         """.format(
-            utils.pretty_print_currency(self.get_total_savings()),
-            utils.pretty_print_currency(self.get_total_income()),
-            utils.pretty_print_currency(self.get_total_income(True)),
-            utils.pretty_print_currency(self.get_total_monthly_income()),
-            utils.pretty_print_currency(self.get_total_monthly_income(True)),
+            format_currency(self.get_total_savings()),
+            format_currency(self.get_total_income()),
+            format_currency(self.get_total_income(True)),
+            format_currency(self.get_total_monthly_income()),
+            format_currency(self.get_total_monthly_income(True)),
             self.calculate_mortgage_affordability()
         )

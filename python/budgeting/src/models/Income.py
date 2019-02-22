@@ -1,7 +1,5 @@
-import utils
-
-FEDERAL_TAX_RATE = [(47630, .15), (47629, .205), (52408, .26), (62704, .29), (210371, .33)]
-ONTARIO_TAX_RATE = [(43906, .0505), (43907, .0915), (62187, .1116), (70000, .1216), (220000, .1316)]
+from src.constants.tax_rates import TAX_RATE_CANADA_FEDERAL_2019, TAX_RATE_CANADA_ONTARIO_2019
+from src.utils.format import format_currency
 
 class Income(object):
     """Income class."""
@@ -29,7 +27,7 @@ class Income(object):
     def calculate_total_tax(self):
         """Calculate the total tax based on 2019 Canadian Federal + Ontario tax rates."""
 
-        return self.calculate_tax(FEDERAL_TAX_RATE) + self.calculate_tax(ONTARIO_TAX_RATE)
+        return self.calculate_tax(TAX_RATE_CANADA_FEDERAL_2019) + self.calculate_tax(TAX_RATE_CANADA_ONTARIO_2019)
 
 
     def calculate_net_income(self):
@@ -55,8 +53,8 @@ class Income(object):
         Tax - {}
         After tax monthly income - {}
         """.format(
-            utils.pretty_print_currency(self.income),
-            utils.pretty_print_currency(self.calculate_net_income()),
-            utils.pretty_print_currency(self.calculate_total_tax()),
-            utils.pretty_print_currency(self.calculate_monthly_income(True))
+            format_currency(self.income),
+            format_currency(self.calculate_net_income()),
+            format_currency(self.calculate_total_tax()),
+            format_currency(self.calculate_monthly_income(True))
         )

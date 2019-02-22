@@ -1,4 +1,4 @@
-import utils
+from ..utils.format import format_currency
 
 class Person:
     """Person class."""
@@ -22,8 +22,8 @@ class Person:
         """.format(
             "{} {}".format(self.first, self.last),
             self.age,
-            utils.pretty_print_currency(self.income.income),
-            utils.pretty_print_currency(self.income.calculate_net_income()),
-            utils.pretty_print_currency(self.income.calculate_total_tax()),
-            utils.pretty_print_currency(self.income.calculate_monthly_income(True))
+            format_currency(self.income.income),
+            format_currency(self.income.calculate_net_income()),
+            format_currency(self.income.calculate_total_tax()),
+            format_currency(self.income.calculate_monthly_income(True))
         )
